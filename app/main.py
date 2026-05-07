@@ -1,5 +1,6 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
+from fastapi.responses import RedirectResponse
 from fastapi.staticfiles import StaticFiles
 
 from .config import APP_NAME, APP_VERSION, DATA_PATH
@@ -35,14 +36,8 @@ if frontend_dir.exists():
 
 
 @app.get("/")
-def system_status() -> dict:
-    return {
-        "name": APP_NAME,
-        "version": APP_VERSION,
-        "status": "online",
-        "docs": "/docs",
-        "frontend": "/frontend",
-    }
+def root_redirect() -> RedirectResponse:
+    return RedirectResponse(url="/frontend/")
 
 
 @app.get("/health", response_model=HealthResponse)

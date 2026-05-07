@@ -62,12 +62,12 @@ python -m pip install -r requirements.txt
 If `python` points to MSYS2, for example `C:\msys64\mingw64\bin\python.exe`, use the Windows Python launcher instead:
 
 ```powershell
-py -3.11 -m pip install -r requirements.txt
-py -3.11 -m pytest tests -p no:cacheprovider
-py -3.11 -m uvicorn app.main:app --reload
+py -3.12 -m pip install -r requirements.txt
+py -3.12 -m pytest tests -p no:cacheprovider
+py -3.12 -m uvicorn app.main:app --reload
 ```
 
-If `py` is not recognized, install Python 3.11 from python.org and enable the Python Launcher during installation.
+If `py` is not recognized, install Python 3.12 from python.org and enable the Python Launcher during installation.
 
 You can also use the helper scripts:
 
@@ -95,7 +95,7 @@ uvicorn app.main:app --reload
 On Windows, if `python` resolves to MSYS2, run:
 
 ```powershell
-py -3.11 -m uvicorn app.main:app --reload
+py -3.12 -m uvicorn app.main:app --reload
 ```
 
 Open the dashboard:
@@ -260,7 +260,7 @@ python -m pytest tests -p no:cacheprovider
 On Windows, if `python` resolves to MSYS2, run:
 
 ```powershell
-py -3.11 -m pytest tests -p no:cacheprovider
+py -3.12 -m pytest tests -p no:cacheprovider
 ```
 
 The tests verify:

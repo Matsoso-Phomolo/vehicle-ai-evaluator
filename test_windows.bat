@@ -1,4 +1,4 @@
 @echo off
-echo Running tests with Python 3.11...
-py -3.11 -m pytest tests -p no:cacheprovider
+echo Running tests with Python 3.12...
+py -3.12 -m pytest tests -p no:cacheprovider
 pause
