@@ -26,12 +26,12 @@
         </div>
       </div>
       <nav aria-label="Dashboard sections" id="section-nav">
-        <a href="#dashboard" class="nav-link active"><span>⌁</span>Dashboard</a>
-        <a href="#prediction" class="nav-link"><span>◈</span>Prediction</a>
+        <a href="#dashboard" class="nav-link active"><span>⌁</span>Command Center</a>
+        <a href="#prediction" class="nav-link"><span>◈</span>AI Inference</a>
         <a href="#dataset" class="nav-link"><span>▦</span>Analytics</a>
-        <a href="#explanation" class="nav-link"><span>✦</span>Explanation</a>
-        <a href="#history" class="nav-link"><span>◷</span>History</a>
-        <a href="#about" class="nav-link"><span>◎</span>About</a>
+        <a href="#explanation" class="nav-link"><span>✦</span>Explainability</a>
+        <a href="#history" class="nav-link"><span>◷</span>Audit Trail</a>
+        <a href="#about" class="nav-link"><span>◎</span>Platform</a>
       </nav>
       <button class="theme-toggle" id="theme-toggle" type="button">
         <span class="toggle-orb"></span>
@@ -42,15 +42,14 @@
     <main class="page">
       <section class="hero reveal" id="dashboard">
         <div class="hero-content">
-          <p class="eyebrow">Production AI dashboard</p>
-          <h1><span>AI-Powered Vehicle</span> Evaluation Platform</h1>
+          <p class="eyebrow">Explainable Vehicle Intelligence</p>
+          <h1><span>Vehicle Intelligence</span> Platform</h1>
           <p class="hero-copy">
-            A premium explainable AI interface for classifying vehicle acceptability,
-            visualizing probability confidence, and exporting clean prediction reports.
+            Enterprise-grade vehicle classification, confidence telemetry, and explainable
+            decision intelligence for operational evaluation workflows.
           </p>
           <div class="hero-actions">
-            <a class="hero-link primary" href="#prediction">Start evaluation</a>
-            <a class="hero-link" href="/docs">API docs</a>
+            <a class="hero-link primary" href="#prediction">Launch Evaluation</a>
           </div>
         </div>
         <div class="ai-orb" aria-label="AI themed visual">
@@ -60,17 +59,20 @@
           <div class="orb-ring ring-three"></div>
         </div>
         <div class="hero-metrics">
-          <article class="floating-card">
-            <span>Status</span>
-            <strong id="system-status">Loading</strong>
+          <article class="floating-card system-status-card">
+            <span>Model State</span>
+            <strong id="system-status" class="live-status"><i></i>LIVE AI MODEL</strong>
+            <small>AI Engine Operational</small>
           </article>
           <article class="floating-card">
-            <span>Accuracy</span>
+            <span>Model Accuracy</span>
             <strong id="hero-accuracy">--</strong>
+            <small>Naive Bayes NB-1</small>
           </article>
           <article class="floating-card">
-            <span>Rows</span>
+            <span>Inference Runtime</span>
             <strong id="hero-rows">--</strong>
+            <small>Realtime latency</small>
           </article>
         </div>
       </section>
@@ -78,8 +80,8 @@
       <section class="grid two-column reveal" id="prediction">
         <form class="panel glass-panel" id="prediction-form">
           <div class="section-heading">
-            <p class="eyebrow">Prediction</p>
-            <h2>Vehicle input form</h2>
+            <p class="eyebrow">AI Inference</p>
+            <h2>Inference Parameters</h2>
           </div>
           <div class="form-grid">
             <label>
@@ -137,25 +139,25 @@
           <div class="actions">
             <button class="ai-button" type="submit" id="predict-button">
               <span class="button-glow"></span>
-              Run prediction
+              Execute Evaluation
             </button>
-            <button class="secondary" type="button" id="export-report">Export Prediction Report</button>
+            <button class="secondary" type="button" id="export-report">Export Evaluation Report</button>
           </div>
           <div class="loading-steps" id="loading-steps" aria-live="polite">
-            <span>Analyzing features...</span>
-            <span>Computing probabilities...</span>
-            <span>Evaluating class confidence...</span>
+            <span>Analyzing feature signals...</span>
+            <span>Computing class probabilities...</span>
+            <span>Evaluating confidence telemetry...</span>
           </div>
-          <p class="status" id="api-status">Connecting to backend...</p>
+          <p class="status live-model-status" id="api-status"><i></i>LIVE AI MODEL</p>
         </form>
 
         <section class="panel glass-panel result-card" id="result-card">
           <div class="section-heading">
-            <p class="eyebrow">Result</p>
-            <h2>Current evaluation</h2>
+            <p class="eyebrow">Decision Output</p>
+            <h2>Evaluation Result</h2>
           </div>
           <div class="prediction-display" id="prediction-display">
-            <span>Predicted class</span>
+            <span>Inferred class</span>
             <strong id="prediction-label">Waiting</strong>
             <small id="prediction-confidence">Confidence: --</small>
           </div>
@@ -166,15 +168,15 @@
       <section class="grid two-column reveal" id="dataset">
         <section class="panel glass-panel">
           <div class="section-heading">
-            <p class="eyebrow">Dataset Analytics</p>
+            <p class="eyebrow">Fleet Dataset Intelligence</p>
             <h2>Class distribution</h2>
           </div>
           <div class="analytics-list" id="class-distribution"></div>
         </section>
         <section class="panel glass-panel">
           <div class="section-heading">
-            <p class="eyebrow">Dataset Analytics</p>
-            <h2>Allowed input categories</h2>
+            <p class="eyebrow">Inference Schema</p>
+            <h2>Accepted feature categories</h2>
           </div>
           <div class="chips" id="allowed-values"></div>
         </section>
@@ -182,8 +184,8 @@
 
       <section class="panel glass-panel reveal" id="metrics">
         <div class="section-heading">
-          <p class="eyebrow">Model Metrics</p>
-          <h2>Training summary</h2>
+          <p class="eyebrow">AI Observability</p>
+          <h2>Model telemetry</h2>
         </div>
         <div class="metric-grid">
           <article class="metric-card"><span>Accuracy</span><strong id="metric-accuracy">--</strong></article>
@@ -196,16 +198,16 @@
       <section class="panel glass-panel reveal explanation-panel" id="explanation">
         <div class="section-heading">
           <p class="eyebrow">Explainability</p>
-          <h2>Why the model selected this class</h2>
+          <h2>Decision rationale</h2>
         </div>
         <div class="explanation-grid">
           <article>
-            <h3>Main influencing features</h3>
+            <h3>Top contributing factors</h3>
             <ul id="main-factors" class="factor-list"></ul>
           </article>
           <article>
             <h3>Reason</h3>
-            <p id="reason-text">Run a prediction to generate an explanation.</p>
+            <p id="reason-text">Execute an evaluation to generate an explanation.</p>
           </article>
           <article>
             <h3>Class comparison</h3>
@@ -220,20 +222,20 @@
 
       <section class="panel glass-panel reveal" id="history">
         <div class="section-heading">
-          <p class="eyebrow">Prediction History</p>
-          <h2>Browser history</h2>
+          <p class="eyebrow">Evaluation Audit Trail</p>
+          <h2>Local decision history</h2>
         </div>
         <div class="empty-state" id="history-empty">
-          <strong>No predictions yet</strong>
-          <span>Run an evaluation and this panel will become your local decision log.</span>
+          <strong>No evaluations recorded yet</strong>
+          <span>Execute an evaluation and this panel will become your local decision log.</span>
         </div>
         <div class="table-wrap" id="history-wrap">
           <table>
             <thead>
               <tr>
                 <th>Timestamp</th>
-                <th>Inputs</th>
-                <th>Prediction</th>
+                <th>Parameters</th>
+                <th>Decision</th>
                 <th>Confidence</th>
               </tr>
             </thead>
@@ -244,8 +246,8 @@
 
       <section class="panel glass-panel reveal" id="about">
         <div class="section-heading">
-          <p class="eyebrow">About</p>
-          <h2>Academic correctness with production-grade presentation</h2>
+          <p class="eyebrow">Platform</p>
+          <h2>Transparent vehicle intelligence</h2>
         </div>
         <p>
           This platform uses a categorical Naive Bayes classifier trained on the UCI car evaluation dataset.

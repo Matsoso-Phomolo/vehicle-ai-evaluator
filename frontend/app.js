@@ -214,7 +214,8 @@ function renderExplanation(explanation) {
   elements.mainFactors.innerHTML = "";
   explanation.main_factors.forEach((factor, index) => {
     const item = document.createElement("li");
-    item.textContent = factor;
+    const [name, value] = factor.split("=");
+    item.textContent = `${name.replace("_", " ")} = ${value}`;
     item.style.animationDelay = `${index * 90}ms`;
     elements.mainFactors.append(item);
   });
@@ -308,7 +309,7 @@ async function runLoadingSequence() {
 
 function exportReport() {
   if (!state.latestPrediction) {
-    elements.apiStatus.textContent = "Run a prediction before exporting a report.";
+    elements.apiStatus.textContent = "Execute an evaluation before exporting a report.";
     elements.apiStatus.classList.add("error");
     return;
   }
@@ -382,7 +383,7 @@ async function handlePrediction(event) {
       prediction: result.prediction,
       confidence: result.confidence
     });
-    elements.apiStatus.textContent = "Prediction complete.";
+    elements.apiStatus.innerHTML = "<i></i>LIVE AI MODEL";
   } catch (error) {
     elements.apiStatus.textContent = error.message;
     elements.apiStatus.classList.add("error");
@@ -423,14 +424,14 @@ async function initialize() {
       apiGet("/metrics"),
       apiGet("/dataset/summary")
     ]);
-    document.querySelector("#system-status").textContent = health.status;
-    elements.apiStatus.textContent = "Backend connected.";
+    document.querySelector("#system-status").innerHTML = "<i></i>LIVE AI MODEL";
+    elements.apiStatus.innerHTML = "<i></i>LIVE AI MODEL";
     renderMetrics(metrics, summary);
     renderHistory();
     renderProbabilityBars({ unacc: 0, acc: 0, good: 0, vgood: 0 });
   } catch (error) {
-    document.querySelector("#system-status").textContent = "offline";
-    elements.apiStatus.textContent = "Backend is not reachable. Start FastAPI with uvicorn app.main:app --reload.";
+    document.querySelector("#system-status").textContent = "AI MODEL OFFLINE";
+    elements.apiStatus.textContent = "AI model service is temporarily unavailable.";
     elements.apiStatus.classList.add("error");
   }
 }
